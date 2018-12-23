@@ -1,24 +1,30 @@
 // Modules
 import React from "react";
 
-/**
- * Our Presentational, Stateless Component that just renders data for us
- * @param props
- * @returns {void | *}
- * @constructor
- */
-const Home = (props) => {
 
-    const {dispatchAction, statusApi} = props;
-    
+class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: true,
+    };
+  }
+
+  render() {
+
+    const {visible} = this.state;
+
     return (
-        <div onClick={dispatchAction}>
-            <p>Click here to call API</p>
-            <p>
-                The status of the API request:{" "}
-                <span className={statusApi}> {statusApi}</span>
-            </p>
-        </div>
-    );
+      <div>
+        <p>Hello world</p>
+        <div onClick={() => this.setState({visible: !visible})}>click me to change visibility!</div>
+        {visible && <div>Do you see me?</div>}
+        <h1>The Calculator</h1>
+        <Calculator />
+      </div>
+    )
+  }
 }
+
 export default Home;
