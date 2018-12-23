@@ -1,5 +1,6 @@
 // Modules
 import React from "react";
+import Calculator from "./Calculator.js";
 
 
 class Home extends React.Component {
